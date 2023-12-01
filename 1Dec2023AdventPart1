@@ -1,0 +1,39 @@
+with open("1Dec2023Data.txt") as f:
+    content = f.readlines()
+
+firstdigit = []
+lastdigit = []
+
+# print(content)
+for i in content:
+    # print(i)
+    for j in i:
+        if j.isdigit():
+            # print(j)
+            firstdigit.append(j)
+            break
+
+for i in content:
+    print(i)
+    for j in i[::-1]:
+        if j.isdigit():
+            # print(j)
+            lastdigit.append(j)
+            break
+
+print(firstdigit)
+print(lastdigit)
+
+sumlist = []
+
+if len(firstdigit) == len(lastdigit):
+    print("Both are equal")
+
+for i in range(len(firstdigit)):
+    sumdigit = firstdigit[i] + lastdigit[i]
+    print(sumdigit)
+    sumlist.append(int(sumdigit))
+
+print(sumlist)
+answer = sum(sumlist)
+print(answer)

@@ -1,0 +1,60 @@
+with open("1Dec2023Data.txt") as f:
+    content = f.readlines()
+
+newcontent = []
+
+print(content)
+for i in content:
+    i = i.replace("one","one1one")
+    i = i.replace("two","two2two")
+    i = i.replace("three","three3three")
+    i = i.replace("four","four4four")
+    i = i.replace("five","five5five")
+    i = i.replace("six","six6six")
+    i = i.replace("seven","seven7seven")
+    i = i.replace("eight","eight8eight")
+    i = i.replace("nine","nine9nine")
+    print(i)
+    newcontent.append(i)
+
+print(newcontent)
+
+
+
+
+firstdigit = []
+lastdigit = []
+
+for i in newcontent:
+    # print(i)
+    for j in i:
+        if j.isdigit():
+            # print(j)
+            firstdigit.append(j)
+            break
+
+print(firstdigit)
+
+for i in newcontent:
+    # print(i)
+    for j in i[::-1]:
+        if j.isdigit():
+            # print(j)
+            lastdigit.append(j)
+            break
+
+print(lastdigit)
+
+sumlist = []
+
+if len(firstdigit) == len(lastdigit):
+    print("Both are equal")
+
+for i in range(len(firstdigit)):
+    sumdigit = firstdigit[i] + lastdigit[i]
+    print(sumdigit)
+    sumlist.append(int(sumdigit))
+
+print(sumlist)
+answer = sum(sumlist)
+print(answer)
