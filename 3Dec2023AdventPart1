@@ -1,0 +1,22 @@
+with open("3Dec2023Data.txt") as f:
+    content = f.readlines()
+
+# print(content)
+
+symbols = []
+for i in content:
+    for j in i:
+        if j not in symbols:
+            symbols.append(j)
+
+print(symbols)
+symbols = symbols[12:22]
+
+print(symbols)
+
+for i in content:
+    newi = []
+    for j in i:
+        newj = j
+        newi.append(newj)
+    print(newi)
