@@ -1,0 +1,42 @@
+with open("2Dec2023Data.txt") as f:
+    content = f.readlines()
+
+# print(content)
+content1 = []
+
+for i in content:
+    i = i.replace("Game ","")
+    # i = i.replace(": ","; ")
+    i = i.replace("\n","")
+    i = i.replace(",","")
+    i = i.split("; ")
+    content1.append(i)
+
+content2 = []
+
+for i in content1:
+    # del i[0]
+    # print(i)
+    content2.append(i)
+    
+# print(content2)
+for i in content2:
+    for j in i:
+        if "red" not in j:
+            # print("NO RED HERE")
+            j = j + " 0 red"
+        if "blue" not in j:
+            # print("NO BLUE HERE")
+            j = j + " 0 blue"
+        if "green" not in j:
+            # print("NO GREEN HERE")
+            j = j + " 0 green"
+        print(j)
+    # print(i)
+
+
+
+
+# for i in content1:
+#     new2 = i.split(";")
+#     print(new2)
