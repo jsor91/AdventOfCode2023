@@ -20,9 +20,6 @@ for i in content1:
     content2.append(i)
     
 game = 0
-red = 12
-green = 13
-blue = 14
 
 gamesum = 0
 
@@ -49,29 +46,35 @@ for i in content2:
         setvalue +=1
     # print(i)
     content3.append(i)
-    
+
+powersum = 0
+
 for i in content3:
     game += 1
     print("Game: " + str(game))
     # print(i)
     failedgames = 0
+    redset = []
+    blueset = []
+    greenset = []
     for j in i:
         j = j.split(" ")
         print(j)
+        
         for k in range(1,len(j),2):
             if j[k] == "red":
-                if int(j[k-1]) > red:
-                    failedgames += 1
+                redset.append(int(j[k-1]))
             if j[k] == "blue":
-                if int(j[k-1]) > blue:
-                    failedgames += 1
+                blueset.append(int(j[k-1]))
             if j[k] == "green":
-                if int(j[k-1]) > green:
-                    failedgames += 1
-    if failedgames == 0:
-        gamesum += game      
+                greenset.append(int(j[k-1]))
+    # print(max(redset))
+    # print(max(blueset))
+    # print(max(greenset))
+    power = max(redset) * max(blueset) * max(greenset)
+    powersum += power   
 
-print(gamesum)                
+print(powersum)
             
 
 
