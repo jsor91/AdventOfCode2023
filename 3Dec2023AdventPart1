@@ -14,9 +14,17 @@ symbols = symbols[12:22]
 
 print(symbols)
 
+content1 = []
+
 for i in content:
+    i = i.replace("\n","")
     newi = []
     for j in i:
         newj = j
         newi.append(newj)
-    print(newi)
+    content1.append(newi)
+print("---------------------------")
+for i in content1:
+    # print(len(i))
+    print(i)
+

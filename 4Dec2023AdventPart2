@@ -1,0 +1,71 @@
+with open("4Dec2023Data1.txt") as f:
+    card = f.readlines()
+
+with open("4Dec2023Data2.txt") as f:
+    numbers = f.readlines()
+
+card1 = []
+numbers1 = []
+    
+for i in card:
+    i = i.split(" ")
+    i = i[1:(len(i)-1)]
+    card1.append(i)
+    
+# for i in card1:
+#     print(i)
+
+for i in numbers:
+    i = i.replace("\n","")
+    i = i.split(" ")
+    i = i[1::]
+    numbers1.append(i)
+
+# for i in numbers1:
+#     print(i)
+
+pointtotal = 0
+
+repeat = []
+for i in range(206):
+    repeat.append(1)
+
+
+
+# print(card1)
+# print(numbers1)
+# for i in range(len(numbers)):
+#     print(card[i])
+#     print(numbers[i])
+
+gamecount = 0
+
+for i in range(len(numbers)):
+    gamecount +=1
+    print("game count: " + str(gamecount))
+    repeatcount = repeat[i]
+    print("repeat" + str(repeatcount))
+    pointmultiplier = 0
+    # print(card1[i])
+    while repeatcount > 0:
+        for j in numbers1[i]:
+            # print(j)
+            if j in card1[i]:
+                print("found match")
+                pointmultiplier +=1
+                print("point multiplier: " + str(pointmultiplier))
+        for extracard in range(pointmultiplier):
+            repeat[i+1+extracard] = repeat[i+1+extracard] + 1
+        repeatcount -= 1
+        
+print(repeat)
+print(sum(repeat))
+        
+        
+        
+        # if pointmultiplier == 0:
+        #     pointtotal += 0
+        # else: 
+        #     pointtotal += 2**(pointmultiplier-1)
+
+print(pointtotal)
